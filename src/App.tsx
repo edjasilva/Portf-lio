@@ -14,7 +14,7 @@ function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <a href="#" className="group inline-flex items-center gap-3">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
-              <span className="h-2 w-2 rounded-full bg-white" />
+              <span className="h-2 w-2 rounded-full bg-[#DFB969]" />
             </span>
             <span className="text-sm font-medium tracking-wide text-white/90">
               {BRAND.name}
@@ -35,7 +35,7 @@ function App() {
 
           <MagneticButton
             href="#contato"
-            className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-black shadow-[0_20px_80px_rgba(120,110,255,.18)] ring-1 ring-white/25 transition hover:bg-white/90"
+            className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-4 py-2 text-sm font-semibold text-black shadow-[0_20px_80px_rgba(223,185,105,.20)] ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]"
           >
             Vamos conversar
           </MagneticButton>
@@ -45,15 +45,15 @@ function App() {
       <main className="mx-auto max-w-6xl px-5">
         <section className="relative pb-20 pt-16 md:pb-28 md:pt-24">
           <div className="absolute inset-0 -z-10 opacity-70">
-            <div className="absolute left-1/2 top-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl" />
-            <div className="absolute right-[-80px] top-44 h-[420px] w-[420px] rounded-full bg-cyan-400/10 blur-3xl" />
+            <div className="absolute left-1/2 top-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#DFB969]/10 blur-3xl" />
+            <div className="absolute right-[-80px] top-44 h-[420px] w-[420px] rounded-full bg-[#F9E29E]/10 blur-3xl" />
           </div>
 
           <div className="grid items-end gap-10 md:grid-cols-12">
             <div className="md:col-span-8">
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/90" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#DFB969]" />
                   {BRAND.location}
                 </p>
                 <h1 className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
@@ -71,13 +71,13 @@ function App() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <MagneticButton
                   href="#servicos"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-black ring-1 ring-white/25 transition hover:bg-white/90"
+                  className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-5 py-3 text-sm font-semibold text-black ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]"
                 >
                   Ver serviços
                 </MagneticButton>
                 <MagneticButton
                   href="#cases"
-                  className="inline-flex items-center justify-center rounded-full bg-white/5 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-full bg-[#262624]/60 px-5 py-3 text-sm font-semibold text-white ring-1 ring-[#DFB969]/25 transition hover:bg-[#262624]/80"
                 >
                   Ver cases
                 </MagneticButton>
@@ -148,7 +148,7 @@ function App() {
                   <ul className="mt-5 space-y-2">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-3 text-sm text-white/75">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-violet-300/80" />
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#DFB969]" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -176,7 +176,7 @@ function App() {
                       <p className="text-xs uppercase tracking-widest text-white/50">{c.sector}</p>
                       <h3 className="mt-2 text-lg font-semibold">{c.title}</h3>
                     </div>
-                    <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200 ring-1 ring-emerald-300/15">
+                    <span className="rounded-full bg-[#DFB969]/10 px-3 py-1 text-xs text-[#F9E29E] ring-1 ring-[#DFB969]/25">
                       {c.impact}
                     </span>
                   </div>
@@ -239,7 +239,7 @@ function App() {
             </Reveal>
 
             <Reveal className="md:col-span-5" delay={0.08}>
-              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-7">
+              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#DFB969]/10 to-white/5 p-7">
                 <p className="text-xs uppercase tracking-widest text-white/50">Diferenciais</p>
                 <ul className="mt-4 space-y-3">
                   {[
@@ -249,7 +249,7 @@ function App() {
                     'Transparência total no progresso',
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3 text-sm text-white/75">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-200/80" />
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#F9E29E]" />
                       <span>{t}</span>
                     </li>
                   ))}
@@ -300,7 +300,7 @@ function App() {
                     <p className="text-xs text-white/50">
                       Resposta em até 1 dia útil. {BRAND.location}
                     </p>
-                    <MagneticButton className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-black ring-1 ring-white/25 transition hover:bg-white/90">
+                    <MagneticButton className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-5 py-3 text-sm font-semibold text-black ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]">
                       Enviar
                     </MagneticButton>
                   </div>

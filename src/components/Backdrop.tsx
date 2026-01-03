@@ -53,8 +53,9 @@ export function Backdrop() {
 
       // Background glow
       const g = ctx.createRadialGradient(w * 0.65, h * 0.3, 0, w * 0.65, h * 0.3, Math.max(w, h) * 0.75)
-      g.addColorStop(0, 'rgba(124, 92, 255, 0.18)')
-      g.addColorStop(0.5, 'rgba(0, 214, 255, 0.06)')
+      // Gold palette glow: #DFB969 / #F9E29E on black
+      g.addColorStop(0, 'rgba(223, 185, 105, 0.16)')
+      g.addColorStop(0.45, 'rgba(249, 226, 158, 0.06)')
       g.addColorStop(1, 'rgba(0, 0, 0, 0)')
       ctx.fillStyle = g
       ctx.fillRect(0, 0, w, h)
@@ -96,7 +97,7 @@ export function Backdrop() {
           const d2 = dx * dx + dy * dy
           if (d2 < 130 * 130) {
             const t = 1 - d2 / (130 * 130)
-            ctx.strokeStyle = `rgba(255,255,255,${0.09 * t})`
+            ctx.strokeStyle = `rgba(223,185,105,${0.08 * t})`
             ctx.lineWidth = 1
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
@@ -107,7 +108,8 @@ export function Backdrop() {
       }
 
       for (const d of dots) {
-        ctx.fillStyle = `rgba(255,255,255,${d.a})`
+        // slightly warm dots
+        ctx.fillStyle = `rgba(249,226,158,${d.a})`
         ctx.beginPath()
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)
         ctx.fill()
