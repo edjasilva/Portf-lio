@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Backdrop } from './components/Backdrop'
+import { Cursor } from './components/Cursor'
 import { MagneticButton } from './components/MagneticButton'
+import { Marquee } from './components/Marquee'
 import { Reveal } from './components/Reveal'
 import { BRAND, CASES, NAV, PROCESS, SERVICES } from './content'
 
@@ -8,15 +10,16 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-x-clip">
       <Backdrop />
+      <Cursor />
       <div className="grain" />
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/20 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/40 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <a href="#" className="group inline-flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
-              <span className="h-2 w-2 rounded-full bg-[#DFB969]" />
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#262624]/70 ring-1 ring-[#DFB969]/20">
+              <span className="h-2 w-2 rounded-full bg-[#DFB969] shadow-[0_0_0_6px_rgba(223,185,105,.12)]" />
             </span>
-            <span className="text-sm font-medium tracking-wide text-white/90">
+            <span className="text-sm font-semibold tracking-wide text-white/90">
               {BRAND.name}
             </span>
           </a>
@@ -26,16 +29,17 @@ function App() {
               <a
                 key={i.href}
                 href={i.href}
-                className="text-sm text-white/70 transition hover:text-white"
+                className="group relative text-sm font-medium text-white/70 transition hover:text-white"
               >
                 {i.label}
+                <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#DFB969]/70 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>
 
           <MagneticButton
             href="#contato"
-            className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-4 py-2 text-sm font-semibold text-black shadow-[0_20px_80px_rgba(223,185,105,.20)] ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]"
+            className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-4 py-2 text-sm font-semibold text-black shadow-[0_24px_90px_rgba(223,185,105,.20)] ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]"
           >
             Vamos conversar
           </MagneticButton>
@@ -43,7 +47,7 @@ function App() {
       </header>
 
       <main className="mx-auto max-w-6xl px-5">
-        <section className="relative pb-20 pt-16 md:pb-28 md:pt-24">
+        <section className="relative pb-16 pt-14 md:pb-24 md:pt-24">
           <div className="absolute inset-0 -z-10 opacity-70">
             <div className="absolute left-1/2 top-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#DFB969]/10 blur-3xl" />
             <div className="absolute right-[-80px] top-44 h-[420px] w-[420px] rounded-full bg-[#F9E29E]/10 blur-3xl" />
@@ -52,23 +56,24 @@ function App() {
           <div className="grid items-end gap-10 md:grid-cols-12">
             <div className="md:col-span-8">
               <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70">
+                <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#DFB969]/20 bg-[#262624]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#F9E29E]/80">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#DFB969]" />
                   {BRAND.location}
                 </p>
-                <h1 className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                  Tecnologia que vira produto.
-                  <span className="text-white/70"> Do plano à execução.</span>
+                <h1 className="text-balance text-[2.75rem] font-semibold leading-[0.98] tracking-tight md:text-7xl">
+                  Tecnologia que vira
+                  <span className="block text-white"> produto.</span>
+                  <span className="block text-white/60">Do plano à execução.</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={0.08}>
-                <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/70 md:text-lg">
+                <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/70 md:text-lg">
                   {BRAND.tagline} Entregamos design + engenharia com foco em impacto, clareza e uma experiência premium.
                 </p>
               </Reveal>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <MagneticButton
                   href="#servicos"
                   className="inline-flex items-center justify-center rounded-full bg-[#DFB969] px-5 py-3 text-sm font-semibold text-black ring-1 ring-[#F9E29E]/35 transition hover:bg-[#F9E29E]"
@@ -86,8 +91,8 @@ function App() {
 
             <div className="md:col-span-4">
               <Reveal delay={0.12}>
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_30px_120px_rgba(0,0,0,.35)]">
-                  <p className="text-xs uppercase tracking-widest text-white/50">O que fazemos</p>
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(0,0,0,.35)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">O que fazemos</p>
                   <ul className="mt-4 space-y-3">
                     {[
                       'Estratégia técnica e arquitetura',
@@ -107,7 +112,7 @@ function App() {
           </div>
 
           <motion.div
-            className="mt-14 grid gap-3 rounded-3xl border border-white/10 bg-black/20 p-4 backdrop-blur md:grid-cols-3"
+            className="mt-12 grid gap-3 rounded-3xl border border-white/10 bg-black/25 p-4 backdrop-blur md:grid-cols-3"
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -119,11 +124,17 @@ function App() {
               { k: 'Parceria', v: 'comunicação direta' },
             ].map((i) => (
               <div key={i.k} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs uppercase tracking-widest text-white/50">{i.k}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">{i.k}</p>
                 <p className="mt-2 text-sm font-medium text-white/85">{i.v}</p>
               </div>
             ))}
           </motion.div>
+
+          <Marquee
+            className="mt-10"
+            items={['Estratégia', 'Produto', 'Engenharia', 'Performance', 'Dados', 'Automação']}
+            speedSeconds={16}
+          />
         </section>
 
         <section id="servicos" className="scroll-mt-24 py-16 md:py-24">
@@ -167,32 +178,32 @@ function App() {
             </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {CASES.map((c, idx) => (
-              <Reveal key={c.title} delay={idx * 0.06}>
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-white/50">{c.sector}</p>
-                      <h3 className="mt-2 text-lg font-semibold">{c.title}</h3>
+          <div className="mt-10 -mx-5 overflow-x-auto px-5 pb-2">
+            <div className="flex min-w-full gap-4">
+              {CASES.map((c, idx) => (
+                <Reveal key={c.title} delay={idx * 0.06} className="min-w-[320px] flex-1 md:min-w-[420px]">
+                  <div className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]">
+                    <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[#DFB969]/10 blur-3xl transition group-hover:bg-[#F9E29E]/10" />
+                    <div className="relative">
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">{c.sector}</p>
+                      <h3 className="mt-3 text-xl font-semibold leading-snug">{c.title}</h3>
+                      <p className="mt-4 text-sm text-white/70">{c.impact}</p>
+
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {c.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full bg-[#262624]/70 px-3 py-1 text-xs font-medium text-white/70 ring-1 ring-[#DFB969]/15"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <span className="rounded-full bg-[#DFB969]/10 px-3 py-1 text-xs text-[#F9E29E] ring-1 ring-[#DFB969]/25">
-                      {c.impact}
-                    </span>
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {c.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/70 ring-1 ring-white/10"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 

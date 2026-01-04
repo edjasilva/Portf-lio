@@ -14,13 +14,25 @@ body {
   margin: 0;
   background: #000000;
   color: #ffffff;
-  font-family: ui-sans-serif, system-ui, Inter, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Manrope, ui-sans-serif, system-ui, Inter, Segoe UI, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background: rgba(223, 185, 105, 0.35);
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none;
+  }
 }
 
 /* Subtle grain overlay */
